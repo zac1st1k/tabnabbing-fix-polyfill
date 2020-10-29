@@ -1,0 +1,23 @@
+{
+  "name": "tabnabbing-fix-polyfill",
+  "version": "1.0.0",
+  "description": "A polyfill to implement HTML Spec Make target=_blank imply noopener https://github.com/whatwg/html/pull/4330",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zac1st1k/tabnabbing-fix-polyfill.git"
+  },
+  "keywords": [
+    "tabnabbing",
+    "polyfill"
+  ],
+  "author": "Zac Xu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zac1st1k/tabnabbing-fix-polyfill/issues"
+  },
+  "homepage": "https://github.com/zac1st1k/tabnabbing-fix-polyfill#readme"
+}
