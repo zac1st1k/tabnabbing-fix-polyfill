@@ -15,10 +15,9 @@
 
   // Mutation observer
   const observer = new MutationObserver((mutationsList) => {
-    const startTime = performance.now();
-
     for (const mutation of mutationsList) {
       if (mutation.type === 'childList' && mutation.addedNodes.length) {
+        const startTime = performance.now();
         mutation.addedNodes.forEach(node => {
           if (node.tagName !== 'A') {
             return;
@@ -29,12 +28,11 @@
           } else {
             node.rel = `${node.rel}${node.rel ? ' ' : ''}noopener`;
           }
-        })
+        });
+        var endTime = performance.now();
+        console.log(`Mutation Observer took ${endTime - startTime} ms.`);
       }
     }
-
-    var endTime = performance.now();
-    console.log(`Mutation Observer took ${endTime - startTime} ms.`);
   });
 
   observer.observe(document.body, { childList: true, subtree: true });
