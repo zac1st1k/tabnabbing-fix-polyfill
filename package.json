@@ -32,5 +32,8 @@
   },
   "dependencies": {
     "babel-plugin-array-includes": "^2.0.3"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
