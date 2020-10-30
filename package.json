@@ -4,6 +4,7 @@
   "description": "A polyfill to implement HTML Spec Make target=_blank imply noopener https://github.com/whatwg/html/pull/4330",
   "main": "index.js",
   "scripts": {
+    "build": "babel src -d dist",
     "test": "jest"
   },
   "repository": {
@@ -21,6 +22,13 @@
   },
   "homepage": "https://github.com/zac1st1k/tabnabbing-fix-polyfill#readme",
   "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "browserslist": "^4.14.5",
     "jest": "^26.6.1"
+  },
+  "dependencies": {
+    "babel-plugin-array-includes": "^2.0.3"
   }
 }

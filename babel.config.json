@@ -1,0 +1,13 @@
+{
+  "presets": [
+    [
+      "@babel/env"
+    ]
+  ],
+  "ignore": [
+    "**/*.test.js"
+  ],
+  "plugins": [
+    "array-includes"
+  ]
+}

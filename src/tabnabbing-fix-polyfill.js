@@ -1,8 +1,7 @@
 (function () {
   const startTime = performance.now();
   // HTML sanitization
-  document
-    .querySelectorAll('a[target="_blank"]')
+  Array.prototype.slice.call(document.querySelectorAll('a[target="_blank"]'))
     .forEach(a => {
       if (a.rel.includes("opener")) {
         return;
@@ -15,10 +14,10 @@
 
   // Mutation observer
   const observer = new MutationObserver((mutationsList) => {
-    for (const mutation of mutationsList) {
+    Array.prototype.slice.call(mutationsList).forEach(mutation => {
       if (mutation.type === 'childList' && mutation.addedNodes.length) {
         const startTime = performance.now();
-        mutation.addedNodes.forEach(node => {
+        Array.prototype.slice.call(mutation.addedNodes).forEach(node => {
           if (node.tagName !== 'A') {
             return;
           } else if (node.target != '_blank') {
@@ -32,7 +31,7 @@
         var endTime = performance.now();
         console.log(`Mutation Observer took ${endTime - startTime} ms.`);
       }
-    }
+    });
   });
 
   observer.observe(document.body, { childList: true, subtree: true });
