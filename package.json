@@ -1,6 +1,6 @@
 {
   "name": "tabnabbing-fix-polyfill",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "A polyfill to implement HTML Spec Make target=_blank imply noopener https://github.com/whatwg/html/pull/4330",
   "main": "index.js",
   "scripts": {
