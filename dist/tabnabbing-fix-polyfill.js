@@ -11,8 +11,7 @@
     }
   });
   var endTime = performance.now();
-  console.log("HTML sanitization took ".concat(endTime - startTime, " ms.")); // todo : ie 11 support
-  // Mutation observer
+  console.log("HTML sanitization took ".concat(endTime - startTime, " ms.")); // Mutation observer
 
   var observer = new MutationObserver(function (mutationsList) {
     Array.prototype.slice.call(mutationsList).forEach(function (mutation) {
