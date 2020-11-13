@@ -23,7 +23,7 @@
             node.rel = "".concat(node.rel).concat(node.rel ? ' ' : '', "noopener");
           }
 
-          node.querySelectorAll('a').forEach(function (anchor) {
+          node.querySelector && node.querySelectorAll('a').forEach(function (anchor) {
             if (anchor.target != '_blank') {
               return;
             } else if (anchor.rel.indexOf('opener') !== -1) {
