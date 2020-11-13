@@ -36,3 +36,11 @@ test('should add opener for target="_blank"', done => {
     done();
   });
 });
+
+test('should add opener for child target="_blank"', done => {
+  document.body.innerHTML = '<div><a href="#" target="_blank">link</a></div>';
+  setTimeout(() => {
+    expect(document.body.innerHTML).toBe('<div><a href="#" target="_blank" rel="noopener">link</a></div>');
+    done();
+  });
+});

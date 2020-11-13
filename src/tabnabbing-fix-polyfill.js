@@ -18,15 +18,18 @@
       if (mutation.type === 'childList' && mutation.addedNodes.length) {
         const startTime = performance.now();
         Array.prototype.slice.call(mutation.addedNodes).forEach(node => {
-          if (node.tagName !== 'A') {
-            return;
-          } else if (node.target != '_blank') {
-            return;
-          } else if (node.rel.includes('opener')) {
-            return;
-          } else {
+          if (node.tagName === 'A' && node.target === '_blank' && !node.rel.includes('opener')) {
             node.rel = `${node.rel}${node.rel ? ' ' : ''}noopener`;
           }
+          node.querySelectorAll('a').forEach(anchor => {
+            if (anchor.target != '_blank') {
+              return;
+            } else if (anchor.rel.includes('opener')) {
+              return;
+            } else {
+              anchor.rel = `${anchor.rel}${anchor.rel ? ' ' : ''}noopener`;
+            }
+          });
         });
         var endTime = performance.now();
         console.log(`Mutation Observer took ${endTime - startTime} ms.`);

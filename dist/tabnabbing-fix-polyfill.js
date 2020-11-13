@@ -19,15 +19,19 @@
         var _startTime = performance.now();
 
         Array.prototype.slice.call(mutation.addedNodes).forEach(function (node) {
-          if (node.tagName !== 'A') {
-            return;
-          } else if (node.target != '_blank') {
-            return;
-          } else if (node.rel.indexOf('opener') !== -1) {
-            return;
-          } else {
+          if (node.tagName === 'A' && node.target === '_blank' && !(node.rel.indexOf('opener') !== -1)) {
             node.rel = "".concat(node.rel).concat(node.rel ? ' ' : '', "noopener");
           }
+
+          node.querySelectorAll('a').forEach(function (anchor) {
+            if (anchor.target != '_blank') {
+              return;
+            } else if (anchor.rel.indexOf('opener') !== -1) {
+              return;
+            } else {
+              anchor.rel = "".concat(anchor.rel).concat(anchor.rel ? ' ' : '', "noopener");
+            }
+          });
         });
         var endTime = performance.now();
         console.log("Mutation Observer took ".concat(endTime - _startTime, " ms."));

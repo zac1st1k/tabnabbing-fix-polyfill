@@ -5,7 +5,7 @@
     ]
   ],
   "ignore": [
-    "**/*.test.js"
+    // "**/*.test.js"
   ],
   "plugins": [
     "array-includes"
